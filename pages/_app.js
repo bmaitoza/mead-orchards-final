@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { createGlobalStyle } from 'styled-components';
 
+
 const quicksand = Quicksand({ subsets: ['latin'] });
 
 const GlobalStyle = createGlobalStyle`

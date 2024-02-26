@@ -4,6 +4,7 @@ import HomeSection from "../components/BackgroundImage";
 import Hours from "../components/HomePage";
 import InstagramPage from "../components/Instagram";
 import Footer from "../components/Footer";
+import SignUpForm from "../components/SignUpPopup";
 
 export default function Home() {
   return (
@@ -45,7 +46,9 @@ export default function Home() {
 < br />
       <InstagramPage />
       < br/>
+      <SignUpForm />
       <Footer />
+
     </>
   );
 }
