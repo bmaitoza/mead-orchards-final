@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { auth } from "../../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Popup = styled.div`
   position: fixed;
@@ -51,9 +53,12 @@ const SignupForm = ({ onClose }) => {
 
   const handleSignup = (e) => {
     e.preventDefault();
-    // Add your subscription logic here
-    console.log(`Subscribed with email: ${email} and password: ${password}`);
-    onClose(); // Close the signup form popup
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      console.log(userCredential)
+    }).catch((error) => {
+      console.log(error);
+    })
   };
 
   return (
