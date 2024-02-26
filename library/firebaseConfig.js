@@ -3,9 +3,9 @@ import { getFirestone } from "firebase/firestore";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
-    apiKey: "x",
+    apiKey: "AIzaSyBwXXoNPLO4X5reYFqXB7_llsdGUZBGkCY",
     authDomain: "x",
-    projectId: "x",
+    projectId: "mead-orchards",
     storageBucket: "x",
     messagingSenderId: "x",
     appId: "x",
