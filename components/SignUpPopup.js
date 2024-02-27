@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { auth } from "firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import {auth} from "firebase/auth";
 
 const Popup = styled.div`
   position: fixed;
