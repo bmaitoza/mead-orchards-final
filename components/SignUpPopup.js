@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { auth } from "../../firebase";
+import { auth } from "firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Popup = styled.div`
