@@ -21,7 +21,7 @@ export default function Home() {
       <HomeSection
         bgImage="/MeadHomePageImage.jpg"
         heading="MEAD ORCHARDS"
-        subheading1="Pick Your Ownasd. The Way It Used To Be."
+        subheading1="Pick Your Own. The Way It Used To Be."
         subheading2="Since 1916."
         height="115vh"
         headingSize="6rem"
