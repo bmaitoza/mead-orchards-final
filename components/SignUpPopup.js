@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { auth } from "../../firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Popup = styled.div`
   position: fixed;
@@ -53,7 +53,7 @@ const SignupForm = ({ onClose }) => {
 
   const handleSignup = (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       console.log(userCredential)
     }).catch((error) => {
