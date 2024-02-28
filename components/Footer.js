@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import SignupForm from '../components/SignUpPopup.js'; // Import the SignupForm component
 
 const FooterWrapper = styled.footer`
   background-color: #010134;
@@ -56,6 +57,7 @@ const SubscribeButton = styled.button`
   cursor: pointer;
 `;
 
+const Footer = () => {
   return (
     <FooterWrapper>
       <AddressColumn>
@@ -63,7 +65,7 @@ const SubscribeButton = styled.button`
       </AddressColumn>
       <LogoColumn>
         <Logo src="/MeadLogo.png" />
-        <FooterText>&copy; 2024 Mead Orchard. All rights reserved. <br /> </FooterText>
+        <FooterText>&copy; 2024 Mead Orchards. All rights reserved. <br /> </FooterText>
         <FooterText href="">Signup / Login</FooterText>
       </LogoColumn>
       <InputColumn>
