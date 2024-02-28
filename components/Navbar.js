@@ -117,16 +117,7 @@ const Navbar = () => {
                         </NavItem>
                         <NavItem>
                             <a href="contact">Contact</a>
-                        </NavItem>  
-                        <NavItem>
-                            <a href="" onClick={toggleLoginPopup}>Signup / Login</a>
-                            {showLoginPopup && (
-                                <Popup>
-                                    <ExitButton onClick={closeLoginPopup}>X</ExitButton>
-                                    <SignupForm onClose={closeLoginPopup} /> {/* Replace with SignupForm component */}
-                                </Popup>
-                            )}
-                        </NavItem>             
+                        </NavItem>            
                     </NavLinks>
                 </MainList>
             </div>

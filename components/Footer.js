@@ -75,7 +75,8 @@ const Footer = () => {
       </AddressColumn>
       <LogoColumn>
         <Logo src="/MeadLogo.png" />
-        <FooterText>&copy; 2024 Mead Orchards. All rights reserved.</FooterText>
+        <FooterText>&copy; 2024 Mead Orchards. All rights reserved. <br /> </FooterText>
+        <FooterText href="">Signup / Login</FooterText>
       </LogoColumn>
       <InputColumn>
         <Input type="email" placeholder="Enter your email" />
