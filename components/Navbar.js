@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import SignupForm from '../components/SignUpPopup'; // Import the SignupForm component
 
 const NavbarWrapper = styled.nav`
     width: 100%;
@@ -48,21 +47,6 @@ const ExitButton = styled.button`
     cursor: pointer;
 `;
 
-// Styled Popup component
-// Styled Popup component
-const Popup = styled.div`
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 300px; /* Adjust width as needed */
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 20px;
-    z-index: 1;
-    text-align: center;
-`;
-
 // Functional component for the navbar
 const Navbar = () => {
     // State variables for controlling the affix behavior and login popup visibility
@@ -83,17 +67,6 @@ const Navbar = () => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
-
-    // Function to toggle login popup visibility
-    const toggleLoginPopup = (event) => {
-        event.preventDefault();
-        setShowLoginPopup(!showLoginPopup);
-    };
-
-    // Function to close the login popup
-    const closeLoginPopup = () => {
-        setShowLoginPopup(false);
-    };
 
     return (
         <NavbarWrapper affix={affix}>

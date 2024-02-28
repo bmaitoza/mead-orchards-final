@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import SignupForm from '../components/SignUpPopup.js'; // Import the SignupForm component
 
 const FooterWrapper = styled.footer`
   background-color: #010134;
