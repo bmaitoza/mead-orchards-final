@@ -68,7 +68,7 @@ const SignupForm = ({ onClose }) => {
         <InputField type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
         <InputField type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         <SubmitButton type="submit">Sign Up</SubmitButton>
-      </Form>
+      </Form>   
     </Popup>
   );
 };

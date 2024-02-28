@@ -30,7 +30,7 @@ export default function Home() {
         logoImage="/MeadLogo.png"
         showLogo={true}
       />
-
+      <Title />
       <Hours />
 
       <HomeSection
