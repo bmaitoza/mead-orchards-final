@@ -23,7 +23,7 @@ const HoursHeading = styled.div`
 // Styled component for the HoursText paragraph
 const HoursText = styled.p`
   text-align: center; 
-  color: #010134; 
+  color: ${({ affix }) => (affix ? '#010134' : 'white')}; 
   font-size: 1.1rem;
   font-family: tahoma, sans-serif;
 `;
@@ -105,10 +105,30 @@ const FruitVeggiesButton = () => {
   );
 }
 
+// Functional component for the navbar
+const ScrollAnim = () => {
+  // State variables for controlling the affix behavior and login popup visibility
+  const [affix, setAffix] = useState(false);
+
+  // Function to handle scrolling and update the affix state
+  const handleScroll = () => {
+      if (window.scrollY > 400) {
+          setAffix(true);
+      } else {
+          setAffix(false);
+      }
+  };
+
+  // Effect hook to add and remove scroll event listener
+  useEffect(() => {
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
 // Component to render the hours information
 const Hours = () => {
   return (
-    <Container>
+    <Container affix={affix}>
       <HoursHeading>
         Hand-picked Fruits and Vegetables
       </HoursHeading>
@@ -133,9 +153,5 @@ const Hours = () => {
     </Container>
   );
 }
-
+}
 export default Hours;
-
-
-
-
