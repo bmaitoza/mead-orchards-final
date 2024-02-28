@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link'; // Import Link from next.js to handle navigation
 
@@ -125,8 +125,6 @@ const ScrollAnim = () => {
       return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-// Component to render the hours information
-const Hours = () => {
   return (
     <Container affix={affix}>
       <HoursHeading>
@@ -153,5 +151,6 @@ const Hours = () => {
     </Container>
   );
 }
-}
-export default Hours;
+
+export default ScrollAnim;
+
