@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import SignupForm from '../components/SignUpPopup.js'; // Import the SignupForm component
 
 const FooterWrapper = styled.footer`
   background-color: #010134;
@@ -57,17 +56,6 @@ const SubscribeButton = styled.button`
   cursor: pointer;
 `;
 
-const Footer = () => {
-  const [showSignupForm, setShowSignupForm] = useState(false);
-
-  const toggleSignupForm = () => {
-    setShowSignupForm(!showSignupForm);
-  };
-
-  const closeSignupForm = () => {
-    setShowSignupForm(false);
-  };
-
   return (
     <FooterWrapper>
       <AddressColumn>
@@ -80,8 +68,7 @@ const Footer = () => {
       </LogoColumn>
       <InputColumn>
         <Input type="email" placeholder="Enter your email" />
-        <SubscribeButton onClick={toggleSignupForm}>Subscribe</SubscribeButton>
-        {showSignupForm && <SignupForm onClose={closeSignupForm} />} {/* Render SignupForm component if showSignupForm is true */}
+        <SubscribeButton>Subscribe</SubscribeButton>
       </InputColumn>
     </FooterWrapper>
   );

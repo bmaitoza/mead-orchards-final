@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import React, { useState } from 'react';
-import Link from 'next/link'; // Import Link from next.js to handle navigation
-import SignupForm from './SignUpPopup'; // Import the SignupForm component
 
 const HomeSectionWrapper = styled.section`
     width: ${props => props.width};
@@ -79,8 +77,7 @@ const LandingPage = ({ width, bgImage, heading, subheading1, subheading2, height
                 {showLogo && <ImageWrapper src={logoImage} />}
                 {showButton && (
                     <>
-                        <Button onClick={handleSignupButtonClick}>Sign Up Here</Button>
-                        {showSignupForm && <SignupForm onClose={() => setShowSignupForm(false)} />}
+                        <Button>Sign Up Here</Button>
                     </>
                 )}
             </LandingTextWrapper>
