@@ -57,50 +57,67 @@ const Button = styled.button`
   margin-bottom: 10px; /* Add margin between buttons */
 `;
 
-const FruitVeggiesButton = () => {
+// Button component for the "Learn More About Orchard Hours" button
+const OrchardButton = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <Link href="/pick-your-own">
+    <Link href="/plan-your-visit">
       <Button 
         isHovered={isHovered} 
         onMouseEnter={() => setIsHovered(true)} 
         onMouseLeave={() => setIsHovered(false)}
       >
-        Learn More About Our Fruits and Vegetables
+        Learn More About Orchard Hours
       </Button>
     </Link>
   );
-  }
+}
 
-  const containerVariants = {
+// Button component for the "Learn More About Our Farmers Markets" button
+const FarmersMarketButton = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <Link href="/farmers-markets">
+      <Button 
+        isHovered={isHovered} 
+        onMouseEnter={() => setIsHovered(true)} 
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        Learn More About Our Farmers Markets
+      </Button>
+    </Link>
+  );
+}
+
+  const containerVariants2 = {
     a: { opacity: 0 },
     b: { opacity: 1, transition: { duration: 2 } }
   }; 
 
-const Hours = () => {
+const Hours2 = () => {
   return (
     <Container    
-    variants={containerVariants}
+    variants={containerVariants2}
     initial="a"
     whileInView="b"
     properties
     >
-      <HoursHeading>
-        Hand-picked Fruits and Vegetables
-      </HoursHeading>
-      <HoursText>
-        Hudson Valley's original local orchard, hand-picked delicious fruits and vegetables for over 100 years.
-      </HoursText>
-      <HomeButtons>
-        <FruitVeggiesButton />
-      </HomeButtons>
+      <HoursHeading >
+        ORCHARD HOURS
+    </HoursHeading>
+    <HoursText >
+      Orchard is closed for the season. <br /><br />
+      We'll see you in June 2024 for strawberries, cherries, and blueberries! <br /><br />
+      Our stand is still open at the Pleasantville and TaSH farmers markets.
+    </HoursText>
+    <HomeButtons>
+      <OrchardButton />
+      <FarmersMarketButton />
+    </HomeButtons>
     </Container>
   );
 }
 
-export default Hours;
-
-
-
-
+export default Hours2;

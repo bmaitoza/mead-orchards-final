@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 const FooterWrapper = styled.footer`
   background-color: #010134;
@@ -65,7 +66,7 @@ const Footer = () => {
       <LogoColumn>
         <Logo src="/MeadLogo.png" />
         <FooterText>&copy; 2024 Mead Orchards. All rights reserved. <br /> </FooterText>
-        <FooterText href="admin-login">Admin Login</FooterText>
+        <Link href="/admin-login">Admin Login</Link>
       </LogoColumn>
       <InputColumn>
         <Input type="email" placeholder="Enter your email" />

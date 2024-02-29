@@ -1,10 +1,12 @@
 import Head from "next/head";
 import Navbar from "../components/Navbar";
 import HomeSection from "../components/BackgroundImage";
+import HomeSection2 from "../components/BackgroundImage2";
 import Hours from "../components/HomePage";
+import Hours2 from "../components/HomePage2";
 import InstagramPage from "../components/Instagram";
 import Footer from "../components/Footer";
-
+import AnimatedTitle from "../components/typewriter";
 export default function Home() {
   return (
     <>
@@ -17,24 +19,22 @@ export default function Home() {
 
       <Navbar />
       
+
       <HomeSection
         bgImage="/MeadHomePageImage.jpg"
-        heading="MEAD ORCHARDS"
         subheading1="Pick Your Own. The Way It Used To Be."
         subheading2="Since 1916."
-        height="115vh"
+        height="110vh"
         headingSize="6rem"
         subheadingSize="2.5rem"
         imagePosition="center top"
         logoImage="/MeadLogo.png"
         showLogo={true}
       />
-
       <Hours />
-
-      <HomeSection
+      <Hours2 />
+      <HomeSection2
         bgImage="/applepicking.jpg"
-        heading="Sign Up For Our Newsletter"
         subheading1="Keep Up With the Latest Farm News, Fruit Availability, Special Offers, Rewards, Events, and More!"
         height="80vh"
         headingSize="3rem"

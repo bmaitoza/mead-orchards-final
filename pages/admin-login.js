@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Navbar from "../components/Navbar";
+import { useRouter } from 'next/router';
+import { auth } from '../library/firebaseConfig'
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 // Styled component for the main container
 const Container = styled.div`
-  background-color: #fff;
+  background-color: #010134;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,7 +44,7 @@ const Button = styled.button`
   width: 300px;
   padding: 10px;
   margin: 10px;
-  background-color: #007bff;
+  background-color: #010134;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -55,34 +57,54 @@ const Button = styled.button`
   }
 `;
 
+// Styled component for the back button
+const BackButton = styled.button`
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 10px;
+`;
+
 const AdminLogin = () => {
+
+  const router = useRouter();
+
   // State for storing input values
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   
   // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you can add logic to authenticate the admin
-    if (username === 'admin' && password === 'password') {
-      // If authentication is successful, you can redirect to admin dashboard or perform other actions
-      alert('Login successful');
-    } else {
-      // If authentication fails, you can show an error message
-      alert('Invalid username or password');
-    }
+
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        //signed in
+        const user = userCredential.user;
+        // setUser(user) // this setUser is a useState in state context
+        console.log(`User ${user.email} logged in successfully`);
+        router.push('/admin-dashboard');
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error(`Error ${errorCode}: ${errorMessage}`);
+        alert(`Error ${errorCode}: ${errorMessage}`);
+    });
+
   };
 
   return (
     <Container>
       <FormContainer>
-        <h2>Admin Login</h2>
         <Form onSubmit={handleSubmit}>
           <Input 
             type="text" 
-            placeholder="Username" 
-            value={username} 
-            onChange={(e) => setUsername(e.target.value)} 
+            placeholder="Email" 
+            value={email} 
+            onChange={(e) => setEmail(e.target.value)} 
             required 
           />
           <Input 
@@ -100,3 +122,4 @@ const AdminLogin = () => {
 };
 
 export default AdminLogin;
+

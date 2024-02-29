@@ -5,6 +5,7 @@ const NavbarWrapper = styled.nav`
     width: 100%;
     height: 90px;
     position: fixed;
+    z-index:10;
     background-color: ${({ affix }) => (affix ? '#010134' : 'transparent')};
     transition: all 0.6s ease;
 `;
