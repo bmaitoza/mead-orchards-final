@@ -1,7 +1,10 @@
 import Head from "next/head";
 import styled from 'styled-components';
 import Navbar from "../components/Navbar";
-import LandingPage from "../components/BackgroundImage";
+import LandingPage from '../components/BackgroundImage4';
+import LandingPage6 from '../components/TaSH';
+import LandingPage7 from '../components/Pleasantville';
+import LandingPage5 from '../components/Rhinebeck';
 import Footer from "../components/Footer";
 
 const FarmersPics = styled.div`
@@ -58,7 +61,7 @@ export default function Home() {
       />
       <Divider>
       <FarmersPics>
-          <LandingPage
+          <LandingPage5
             bgImage="/rhinebeck.jpg"
             heading="RHINEBECK"
             height="40vh"
@@ -90,7 +93,7 @@ export default function Home() {
       </FarmersText>
       </FarmersPics>
       <FarmersPics>
-        <LandingPage
+        <LandingPage7
           bgImage="/pleasantville.jpg"
           heading="PLEASANTVILLE"
           height="40vh"
@@ -127,7 +130,7 @@ export default function Home() {
         </FarmersText>
       </FarmersPics>
       <FarmersPics>
-        <LandingPage
+        <LandingPage6
           bgImage="/tarrytown.jpg"
           heading="Tarrytown & Sleepy Hollow"
           height="40vh"

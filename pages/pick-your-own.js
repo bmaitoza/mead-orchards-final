@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styled from 'styled-components';
 import Navbar from "../components/Navbar";
-import LandingPage from "../components/BackgroundImage";
+import LandingPage from "../components/BackgroundImage3";
 import Footer from "../components/Footer";
 
 const Timeline = styled.div`

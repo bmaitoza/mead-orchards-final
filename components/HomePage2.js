@@ -93,7 +93,7 @@ const FarmersMarketButton = () => {
 
   const containerVariants2 = {
     a: { opacity: 0 },
-    b: { opacity: 1, transition: { duration: 2 } }
+    b: { opacity: 1, transition: { duration: 3 } }
   }; 
 
 const Hours2 = () => {

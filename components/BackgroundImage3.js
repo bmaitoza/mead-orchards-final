@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import React, { useState } from 'react';
 import AnimatedTitle from '../components/typewriter';
 
-const HomeSectionWrapper = styled.section`
+const HomeSection2Wrapper = styled.section`
     width: ${props => props.width};
     height: ${props => props.height};
     display: flex;
@@ -60,9 +60,9 @@ const LandingPage = ({ width, bgImage, heading, subheading1, subheading2, height
     };
 
     return (
-        <HomeSectionWrapper bgImage={bgImage} height={height} imagePosition={imagePosition} width={width}>
+        <HomeSection2Wrapper bgImage={bgImage} height={height} imagePosition={imagePosition} width={width}>
             <LandingTextWrapper>
-            <AnimatedTitle text='Mead Orchards' fontSize='6rem' />
+            <AnimatedTitle text="Pick Your Own" fontSize="6rem" />
                 <br />
                 <SubheadingText subheadingSize={subheadingSize}>{subheading1}</SubheadingText>
                 <SubheadingText subheadingSize={subheadingSize}>{subheading2}</SubheadingText>
@@ -74,7 +74,7 @@ const LandingPage = ({ width, bgImage, heading, subheading1, subheading2, height
                     </>
                 )}
             </LandingTextWrapper>
-        </HomeSectionWrapper>
+        </HomeSection2Wrapper>
     );
 };
 

@@ -75,7 +75,7 @@ const FruitVeggiesButton = () => {
 
   const containerVariants = {
     a: { opacity: 0 },
-    b: { opacity: 1, transition: { duration: 2 } }
+    b: { opacity: 1, transition: { duration: 3 } }
   }; 
 
 const Hours = () => {
