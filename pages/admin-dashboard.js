@@ -72,33 +72,33 @@ const AdminDashboard = () => {
     // Get the old data
     const docRef = doc(db, 'HoursCollection', 'hours_object_document');
     const docResponse = await getDoc(docRef);
-    const old_data = docResponse.data();
+    const data = docResponse.data();
 
     // Update data for each day if input value is not empty
     if (mondayInputRef.current.value !== '') {
-      old_data.monday = mondayInputRef.current.value;
+      data.monday = mondayInputRef.current.value;
     }
     if (tuesdayInputRef.current.value !== '') {
-      old_data.tuesday = tuesdayInputRef.current.value;
+      data.tuesday = tuesdayInputRef.current.value;
     }
     if (wednesdayInputRef.current.value !== '') {
-      old_data.wednesday = wednesdayInputRef.current.value;
+      data.wednesday = wednesdayInputRef.current.value;
     }
     if (thursdayInputRef.current.value !== '') {
-      old_data.thursday = thursdayInputRef.current.value;
+      data.thursday = thursdayInputRef.current.value;
     }
     if (fridayInputRef.current.value !== '') {
-      old_data.friday = fridayInputRef.current.value;
+      data.friday = fridayInputRef.current.value;
     }
     if (saturdayInputRef.current.value !== '') {
-      old_data.saturday = saturdayInputRef.current.value;
+      data.saturday = saturdayInputRef.current.value;
     }
     if (sundayInputRef.current.value !== '') {
-      old_data.sunday = sundayInputRef.current.value;
+      data.sunday = sundayInputRef.current.value;
     }
 
     // Update Firestore document with new data
-    await setDoc(docRef, old_data);
+    await setDoc(docRef, data);
   }
 
   return (

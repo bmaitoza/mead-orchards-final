@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion'; // Import motion from framer-motion
 import { db } from '../library/firebaseConfig';
 import { setDoc, getDoc, doc } from 'firebase/firestore';
+import { data } from 'autoprefixer';
 
 // Styled component for the container div
 const Container = styled(motion.div)`
@@ -105,7 +106,7 @@ const Hours2 = () => {
     async function readData(){
       const docRef = doc(db, 'HoursCollection', 'hours_object_document');
       const docResponse = await getDoc(docRef);
-      const data = docResponse.data()
+      const data = docSnapshot.data()
       setHours(data)
     }
     readData();
@@ -117,11 +118,13 @@ const Hours2 = () => {
     initial="a"
     whileInView="b"
     properties>
-      <HoursHeading >
-        ORCHARD HOURS
-    </HoursHeading>
-
-    <HoursText >
+    <HoursHeading>ORCHARD HOURS</HoursHeading>
+    <div>
+      {hours && Object.entries(hours).map(([day, hours]) => (
+        <p key={day}><strong>{day}: </strong>{hours}</p>
+      ))}
+    </div>
+    <HoursText>
       Orchard is closed for the season. <br /><br />
       We'll see you in June 2024 for strawberries, cherries, and blueberries! <br /><br />
       Our stand is still open at the Pleasantville and TaSH farmers markets.
