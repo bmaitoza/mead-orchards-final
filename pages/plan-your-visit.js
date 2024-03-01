@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Navbar from "../components/Navbar";
-import LandingPage from "../components/BackgroundImage";
+import LandingPage from "../components/LandingPage";
 import Footer from "../components/Footer";
 
 export default function Home() {

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import React, { useState } from 'react';
-import AnimatedTitle from '../components/typewriter';
+import AnimatedTitle from './typewriter';
 
-const HomeSection2Wrapper = styled.section`
+const HomeSectionWrapper = styled.section`
     width: ${props => props.width};
     height: ${props => props.height};
     display: flex;
@@ -53,16 +53,11 @@ const Button = styled.button`
 `;
 
 const LandingPage = ({ width, bgImage, heading, subheading1, subheading2, height, headingSize, subheadingSize, imagePosition, showButton, logoImage, showLogo }) => {
-    const [showSignupForm, setShowSignupForm] = useState(false);
-
-    const handleSignupButtonClick = () => {
-        setShowSignupForm(true);
-    };
 
     return (
-        <HomeSection2Wrapper bgImage={bgImage} height={height} imagePosition={imagePosition} width={width}>
+        <HomeSectionWrapper bgImage={bgImage} height={height} imagePosition={imagePosition} width={width}>
             <LandingTextWrapper>
-            <AnimatedTitle text="Pick Your Own" fontSize="6rem" />
+            <AnimatedTitle text='Mead Orchards' fontSize='6rem' />
                 <br />
                 <SubheadingText subheadingSize={subheadingSize}>{subheading1}</SubheadingText>
                 <SubheadingText subheadingSize={subheadingSize}>{subheading2}</SubheadingText>
@@ -74,7 +69,7 @@ const LandingPage = ({ width, bgImage, heading, subheading1, subheading2, height
                     </>
                 )}
             </LandingTextWrapper>
-        </HomeSection2Wrapper>
+        </HomeSectionWrapper>
     );
 };
 
