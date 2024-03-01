@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import { auth } from '../library/firebaseConfig'
 import { signInWithEmailAndPassword } from "firebase/auth";
 
-// Styled component for the main container
 const Container = styled.div`
   background-color: #010134;
   display: flex;
@@ -14,7 +13,6 @@ const Container = styled.div`
   height: 100vh;
 `;
 
-// Styled component for the form container
 const FormContainer = styled.div`
   background-color: #f9f9f9;
   padding: 20px;
@@ -22,14 +20,12 @@ const FormContainer = styled.div`
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 `;
 
-// Styled component for the form
 const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-// Styled component for the input fields
 const Input = styled.input`
   width: 300px;
   padding: 10px;
@@ -39,7 +35,6 @@ const Input = styled.input`
   font-size: 16px;
 `;
 
-// Styled component for the submit button
 const Button = styled.button`
   width: 300px;
   padding: 10px;
@@ -55,16 +50,6 @@ const Button = styled.button`
   &:hover {
     background-color: #0056b3;
   }
-`;
-
-// Styled component for the back button
-const BackButton = styled.button`
-  background-color: transparent;
-  border: none;
-  font-size: 16px;
-  color: #fff;
-  cursor: pointer;
-  margin-top: 10px;
 `;
 
 const AdminLogin = () => {

@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useState } from 'react';
-import { motion } from 'framer-motion'; // Import motion from framer-motion
+import { motion } from 'framer-motion';
 import { db } from '../library/firebaseConfig';
 import { setDoc, getDoc, doc } from 'firebase/firestore';
 import { data } from 'autoprefixer';
 
-// Styled component for the container div
+
 const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
@@ -15,7 +15,6 @@ const Container = styled(motion.div)`
   justify-content: center;
 `;
 
-// Styled component for the HoursHeading div
 const HoursHeading = styled.div`
   color: #010134;
   font-size: 2.6em;
@@ -25,7 +24,6 @@ const HoursHeading = styled.div`
   margin: 3% 0; 
 `;
 
-// Styled component for the HoursText paragraph
 const HoursText = styled.p`
   text-align: center; 
   color: '#010134'; 
@@ -33,7 +31,6 @@ const HoursText = styled.p`
   font-family: tahoma, sans-serif;
 `;
 
-// Styled component for the HomeButtons div
 const HomeButtons = styled.div`
   display: flex;
   flex-direction: column;
@@ -43,7 +40,6 @@ const HomeButtons = styled.div`
   margin: 3%;
 `;
 
-// Styled component for the button
 const Button = styled.button`
   padding: 3% 2%;
   background-color: ${({ isHovered }) => (isHovered ? '#010134' : 'white')};
@@ -60,64 +56,50 @@ const Button = styled.button`
   margin-bottom: 10px; /* Add margin between buttons */
 `;
 
-// Button component for the "Learn More About Orchard Hours" button
+//button animation
 const OrchardButton = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <Link href="/plan-your-visit">
-      <Button 
-        isHovered={isHovered} 
-        onMouseEnter={() => setIsHovered(true)} 
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        Learn More About Orchard Hours
+      <Button isHovered={isHovered} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+          Learn More About Orchard Hours
       </Button>
     </Link>
   );
 }
 
-// Button component for the "Learn More About Our Farmers Markets" button
+//button animation
 const FarmersMarketButton = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <Link href="/farmers-markets">
-      <Button 
-        isHovered={isHovered} 
-        onMouseEnter={() => setIsHovered(true)} 
-        onMouseLeave={() => setIsHovered(false)}
-      >
+      <Button isHovered={isHovered} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
         Learn More About Our Farmers Markets
       </Button>
     </Link>
   );
 }
 
-  const containerVariants2 = {
-    a: { opacity: 0 },
-    b: { opacity: 1, transition: { duration: 3 } }
-  }; 
+//fade transition effect
+  const containerVariants2 = {a: { opacity: 0 },b: { opacity: 1, transition: { duration: 3 }}}; 
 
+//getDoc DB hour information from firestore
 const Hours2 = () => {
 
   const [ hours, setHours ] = useState(null)
-  useEffect(() => {
-    async function readData(){
+  useEffect(() => { async function readData(){
       const docRef = doc(db, 'HoursCollection', 'hours_object_document');
       const docResponse = await getDoc(docRef);
       const data = docSnapshot.data()
-      setHours(data)
-    }
+      setHours(data)}
     readData();
   },[])
 
+
   return (
-    <Container    
-    variants={containerVariants2}
-    initial="a"
-    whileInView="b"
-    properties>
+    <Container variants={containerVariants2} initial="a" whileInView="b" properties>
     <HoursHeading>ORCHARD HOURS</HoursHeading>
     <div>
       {hours && Object.entries(hours).map(([day, hours]) => (

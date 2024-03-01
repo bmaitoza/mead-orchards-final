@@ -6,7 +6,7 @@ import Hours from "../components/FruitsVeggies";
 import Hours2 from "../components/OrchardHours";
 import InstagramPage from "../components/Instagram";
 import Footer from "../components/Footer";
-import AnimatedTitle from "../components/typewriter";
+
 export default function Home() {
   return (
     <>
@@ -19,7 +19,6 @@ export default function Home() {
 
       <Navbar />
       
-
       <HomeSection
         bgImage="/MeadHomePageImage.jpg"
         subheading1="Pick Your Own. The Way It Used To Be."
@@ -42,7 +41,7 @@ export default function Home() {
         imagePosition="center center"
         showButton={true}
       />
-< br />
+      < br />
       <InstagramPage />
       < br/>
       <Footer />

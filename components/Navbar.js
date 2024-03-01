@@ -38,21 +38,10 @@ const NavItem = styled.li`
     }
 `;
 
-// Styled Exit Button
-const ExitButton = styled.button`
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-`;
-
 // Functional component for the navbar
 const Navbar = () => {
-    // State variables for controlling the affix behavior and login popup visibility
+    // State variables for controlling the affix behavior
     const [affix, setAffix] = useState(false);
-    const [showLoginPopup, setShowLoginPopup] = useState(false);
 
     // Function to handle scrolling and update the affix state
     const handleScroll = () => {

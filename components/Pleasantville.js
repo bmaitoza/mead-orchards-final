@@ -53,11 +53,6 @@ const Button = styled.button`
 `;
 
 const LandingPage7 = ({ width, bgImage, heading, subheading1, subheading2, height, headingSize, subheadingSize, imagePosition, showButton, logoImage, showLogo }) => {
-    const [showSignupForm, setShowSignupForm] = useState(false);
-
-    const handleSignupButtonClick = () => {
-        setShowSignupForm(true);
-    };
 
     return (
         <HomeSection2Wrapper bgImage={bgImage} height={height} imagePosition={imagePosition} width={width}>

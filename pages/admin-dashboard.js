@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import { db } from '../library/firebaseConfig';
 import { setDoc, getDoc, doc } from 'firebase/firestore'
 
-// Styled component for the main container
 const Container = styled.div`
   background-color: #010134;
   display: flex;
@@ -14,7 +13,6 @@ const Container = styled.div`
   height: 100vh;
 `;
 
-// Styled component for the form container
 const FormContainer = styled.div`
   background-color: #f9f9f9;
   justify-items: center;
@@ -25,7 +23,6 @@ const FormContainer = styled.div`
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 `;
 
-// Styled component for the input fields
 const Input = styled.input`
   width: 300px;
   padding: 10px;
@@ -35,13 +32,11 @@ const Input = styled.input`
   font-size: 16px;
 `;
 
-// Styled component for the labels
 const Label = styled.label`
   font-size: 16px;
   margin-bottom: 5px;
 `;
 
-// Styled component for the submit button
 const Button = styled.button`
   width: 300px;
   padding: 10px;

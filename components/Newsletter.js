@@ -22,7 +22,6 @@ const LandingTextWrapper = styled.div`
     margin: 10%;
 `;
 
-
 const SubheadingText = styled.p`
     text-decoration: none;
     color: white;
