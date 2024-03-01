@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useState } from 'react';
 import { motion } from 'framer-motion'; // Import motion from framer-motion
+import { db } from '../library/firebaseConfig';
+import { setDoc, getDoc, doc } from 'firebase/firestore';
 
 // Styled component for the container div
 const Container = styled(motion.div)`
@@ -97,16 +99,28 @@ const FarmersMarketButton = () => {
   }; 
 
 const Hours2 = () => {
+
+  const [ hours, setHours ] = useState(null)
+  useEffect(() => {
+    async function readData(){
+      const docRef = doc(db, 'HoursCollection', 'hours_object_document');
+      const docResponse = await getDoc(docRef);
+      const data = docResponse.data()
+      setHours(data)
+    }
+    readData();
+  },[])
+
   return (
     <Container    
     variants={containerVariants2}
     initial="a"
     whileInView="b"
-    properties
-    >
+    properties>
       <HoursHeading >
         ORCHARD HOURS
     </HoursHeading>
+
     <HoursText >
       Orchard is closed for the season. <br /><br />
       We'll see you in June 2024 for strawberries, cherries, and blueberries! <br /><br />

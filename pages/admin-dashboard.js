@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import { db } from '../library/firebaseConfig';
+import { setDoc, getDoc, doc } from 'firebase/firestore'
 
 // Styled component for the main container
 const Container = styled.div`
@@ -15,16 +17,12 @@ const Container = styled.div`
 // Styled component for the form container
 const FormContainer = styled.div`
   background-color: #f9f9f9;
+  justify-items: center;
+  display: flex;
+  flex-direction: column;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-`;
-
-// Styled component for the form
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 `;
 
 // Styled component for the input fields
@@ -35,6 +33,12 @@ const Input = styled.input`
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+`;
+
+// Styled component for the labels
+const Label = styled.label`
+  font-size: 16px;
+  margin-bottom: 5px;
 `;
 
 // Styled component for the submit button
@@ -56,12 +60,75 @@ const Button = styled.button`
 `;
 
 const AdminDashboard = () => {
-    
-    return (
-      <Container>
-        <h1>Welcome</h1>
-      </Container>
-    );
-  };
-  
-  export default AdminDashboard;
+  const mondayInputRef = useRef();
+  const tuesdayInputRef = useRef();
+  const wednesdayInputRef = useRef();
+  const thursdayInputRef = useRef();
+  const fridayInputRef = useRef();
+  const saturdayInputRef = useRef();
+  const sundayInputRef = useRef();
+
+  async function changeHours() {
+    // Get the old data
+    const docRef = doc(db, 'HoursCollection', 'hours_object_document');
+    const docResponse = await getDoc(docRef);
+    const old_data = docResponse.data();
+
+    // Update data for each day if input value is not empty
+    if (mondayInputRef.current.value !== '') {
+      old_data.monday = mondayInputRef.current.value;
+    }
+    if (tuesdayInputRef.current.value !== '') {
+      old_data.tuesday = tuesdayInputRef.current.value;
+    }
+    if (wednesdayInputRef.current.value !== '') {
+      old_data.wednesday = wednesdayInputRef.current.value;
+    }
+    if (thursdayInputRef.current.value !== '') {
+      old_data.thursday = thursdayInputRef.current.value;
+    }
+    if (fridayInputRef.current.value !== '') {
+      old_data.friday = fridayInputRef.current.value;
+    }
+    if (saturdayInputRef.current.value !== '') {
+      old_data.saturday = saturdayInputRef.current.value;
+    }
+    if (sundayInputRef.current.value !== '') {
+      old_data.sunday = sundayInputRef.current.value;
+    }
+
+    // Update Firestore document with new data
+    await setDoc(docRef, old_data);
+  }
+
+  return (
+    <Container>
+      <FormContainer>
+        <Label>Monday</Label>
+        <Input ref={mondayInputRef} type="text" name="Monday" />
+
+        <Label>Tuesday</Label>
+        <Input ref={tuesdayInputRef} type="text" name="Tuesday" />
+
+        <Label>Wednesday</Label>
+        <Input ref={wednesdayInputRef} type="text" name="Wednesday" />
+
+        <Label>Thursday</Label>
+        <Input ref={thursdayInputRef} type="text" name="Thursday" />
+
+        <Label>Friday</Label>
+        <Input ref={fridayInputRef} type="text" name="Friday" />
+
+        <Label>Saturday</Label>
+        <Input ref={saturdayInputRef} type="text" name="Saturday" />
+
+        <Label>Sunday</Label>
+        <Input ref={sundayInputRef} type="text" name="Sunday" />
+
+        <Button onClick={changeHours}>Submit</Button>
+      </FormContainer>
+    </Container>
+  );
+};
+
+export default AdminDashboard;

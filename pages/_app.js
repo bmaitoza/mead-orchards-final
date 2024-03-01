@@ -4,7 +4,7 @@ import { Quicksand } from 'next/font/google';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { createGlobalStyle } from 'styled-components';
-
+import { StateContext } from '../context/StateContext';
 
 const quicksand = Quicksand({ subsets: ['latin'] });
 
@@ -47,7 +47,9 @@ const App = ({ Component, pageProps }) => {
     <main className={quicksand.className}>
       <GlobalStyle />
       <div className={`page-container ${isPageLoading ? 'page-loading' : ''}`}>
-        <Component {...pageProps} />
+
+          <Component {...pageProps} />
+
       </div>
     </main>
   );
